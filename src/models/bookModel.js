@@ -22,6 +22,17 @@ const getBookById = (bookId) => {
     });
 };
 
+// Function to get all books by a specific author
+const getBooksByAuthor = (authorId) => {
+    return new Promise((resolve, reject) => {
+        const query = 'SELECT * FROM books WHERE authorId = ?';
+        connection.query(query, [authorId], (err, results) => {
+            if (err) reject(err);
+            resolve(results);  // Resolves with an array of books
+        });
+    });
+};
+
 // Create a new book
 const createBook = ({ title, authorId, pageCount, releaseDate }) => {
     return new Promise((resolve, reject) => {
@@ -65,6 +76,7 @@ const deleteBook = (bookId) => {
 module.exports = {
     getAllBooks,
     getBookById,
+    getBooksByAuthor,
     createBook,
     updateBook,
     deleteBook

@@ -27,6 +27,26 @@ const getBookById = async (req, res) => {
     }
 };
 
+// Function to get all books by a specific author
+const getBooksByAuthor = async (req, res) => {
+    const authorId = req.params.id;
+
+    try {
+        // Query to get all books by the given author ID
+        const books = await bookModel.getBooksByAuthor(authorId);
+
+        if (books.length === 0) {
+            return res.status(404).json({ message: `No books found for author with id ${authorId}` });
+        }
+
+        // Respond with the list of books
+        res.status(200).json(books);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Error fetching books for the author' });
+    }
+};
+
 // Create a new book
 const createBook = async (req, res) => {
     const { title, authorId, pageCount, releaseDate } = req.body;
@@ -81,6 +101,7 @@ const deleteBook = async (req, res) => {
 module.exports = {
     getBooks,
     getBookById,
+    getBooksByAuthor,
     createBook,
     updateBook,
     deleteBook
