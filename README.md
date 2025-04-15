@@ -170,3 +170,14 @@ You can use Postman or any other API testing tool to interact with the API.
 9. Delete a Book
 - DELETE /api/books/:id
 - Deletes a book from the database.
+
+### 6. Unit Tests
+
+1. Test Setup
+- The tests are written using Jest and Supertest. They are located in the `tests/` directory.
+
+2. Run Tests
+- To run all tests, execute the following command:
+```
+npm test
+```
