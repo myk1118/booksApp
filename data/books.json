@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "A Game of Thrones",
+        "pageCount": 800,
+        "releaseDate": "1996-08-06T00:00:00.000Z",
+        "authorId": 1,
+        "createdAt": "2025-04-15T12:34:56.000Z",
+        "updatedAt": "2025-04-15T12:34:56.000Z"
+    },
+    {
+        "id": 2,
+        "title": "Harry Potter and the Philosopher's Stone",
+        "pageCount": 320,
+        "releaseDate": "1997-06-26T00:00:00.000Z",
+        "authorId": 2,
+        "createdAt": "2025-04-15T12:35:10.000Z",
+        "updatedAt": "2025-04-15T12:35:10.000Z"
+    }
+]

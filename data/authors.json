@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "firstName": "George",
+        "lastName": "Martin",
+        "createdAt": "2025-04-15T12:30:00.000Z",
+        "updatedAt": "2025-04-15T12:30:00.000Z"
+    },
+    {
+        "id": 2,
+        "firstName": "J.K.",
+        "lastName": "Rowling",
+        "createdAt": "2025-04-15T12:40:00.000Z",
+        "updatedAt": "2025-04-15T12:40:00.000Z"
+    }
+]
