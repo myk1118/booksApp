@@ -33,16 +33,45 @@ const getBooksByAuthor = (authorId) => {
     });
 };
 
-// Create a new book
+// type CreateBookInput = {
+//     title: string;
+//     authorId: number;
+//     pageCount: number;
+//     releaseDate: Date;
+// };
+
+/**
+ * Creates a new book record in the database.
+ * 
+ * @param {{ 
+*   title: string, 
+*   authorId: number, 
+*   pageCount: number, 
+*   releaseDate: Date 
+* }} book - The book data
+* @returns {Promise<{ 
+*   id: number, 
+*   title: string, 
+*   authorId: number, 
+*   pageCount: number, 
+*   releaseDate: Date 
+* }>} The newly created book
+*/
 const createBook = ({ title, authorId, pageCount, releaseDate }) => {
+    // Type checks
+    if (typeof title !== 'string') throw new TypeError('title must be a string');
+    if (typeof authorId !== 'number') throw new TypeError('authorId must be a number');
+    if (typeof pageCount !== 'number') throw new TypeError('pageCount must be a number');
+    if (!(releaseDate instanceof Date)) throw new TypeError('releaseDate must be a Date');
+
     return new Promise((resolve, reject) => {
         const query = 'INSERT INTO books (title, authorId, pageCount, releaseDate) VALUES (?, ?, ?, ?)';
         connection.query(query, [title, authorId, pageCount, releaseDate], (err, results) => {
-            if (err) reject(err);
+            if (err) return reject(err);
             const newBook = { id: results.insertId, title, authorId, pageCount, releaseDate };
             resolve(newBook);
-        });
-    });
+        })
+    })
 };
 
 // Update an existing book
